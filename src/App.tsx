@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
+import gsap from 'gsap';
 import './App.css';
 
 // 기술 스택 데이터
@@ -44,23 +45,50 @@ const skillLevels = {
 };
 
 function App() {
-  // 1. 테마 상태 관리 (localStorage에서 초기값 가져오기)
+  // 테마 상태 관리
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
 
-  // 2. 테마 변경 함수
+  // 테마 변경 함수
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   };
 
-  // 3. 테마가 변경될 때마다 <body> 태그의 클래스를 업데이트하고 localStorage에 저장
+  // 테마 적용 및 저장
   useEffect(() => {
-    document.body.className = ''; // 기존 클래스 초기화
+    document.body.className = '';
     document.body.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // GSAP 애니메이션
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.intro-section', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+      gsap.from('.skills-section', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2
+      });
+      gsap.from('.skill-legend-section', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.4
+      });
+    });
+    return () => ctx.revert(); // cleanup
+  }, []);
 
   return (
     <div className="portfolio-container">
@@ -110,7 +138,7 @@ function App() {
         </div>
       </section>
 
-      {/* 4. 다크 모드 전환 플로팅 버튼 */}
+      {/* 다크 모드 전환 플로팅 버튼 */}
       <button onClick={toggleTheme} className="theme-toggle-button">
         {theme === 'light' ? '🌙' : '☀️'}
       </button>
