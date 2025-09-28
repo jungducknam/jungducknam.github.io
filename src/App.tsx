@@ -6,9 +6,10 @@ import './App.css';
 const skillsData = {
   backend: [
     { name: 'Java', level: 'proficient' },
-    { name: 'Spring Boot', level: 'proficient' },
     { name: 'Python', level: 'experienced' },
-    { name: 'Node.js', level: 'experienced' },
+    { name: 'Kotlin', level: 'familiar' },
+    { name: 'Spring Boot', level: 'proficient' },
+    { name: 'Node.js', level: 'familiar' },
   ],
   frontend: [
     { name: 'React', level: 'experienced' },
@@ -22,8 +23,8 @@ const skillsData = {
     { name: 'Redis', level: 'familiar' },
   ],
   devops: [
+    { name: 'Cloud (NAVER, OCI, AWS, etc.)', level: 'experienced' },
     { name: 'Docker', level: 'experienced' },
-    { name: 'AWS (EC2, S3, RDS)', level: 'experienced' },
     { name: 'Git', level: 'proficient' },
   ],
 };
@@ -94,7 +95,7 @@ function App() {
     <div className="portfolio-container">
       {/* 소개 섹션 */}
       <section className="intro-section">
-        <h1>안녕하세요, Jungduck Nam입니다.</h1>
+        <h1>다양한 상황에 맞는 시스템을 제공하는 개발자. 남정덕입니다.</h1>
         <p>
           복잡한 문제를 해결하고 효율적인 시스템을 만드는 것을 즐기는 백엔드 개발자입니다. 
           견고한 서버 아키텍처 설계와 데이터 처리에 강점을 가지고 있습니다. 
