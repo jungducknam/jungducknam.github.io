@@ -5,7 +5,7 @@ import './App.css';
 // 기술 스택 데이터
 const skillsData = {
   backend: [
-    { name: 'Java ', level: 'proficient' },
+    { name: 'Java', level: 'proficient' },
     { name: 'Python', level: 'experienced' },
     { name: 'Kotlin', level: 'familiar' },
     { name: 'Spring Boot', level: 'proficient' },
