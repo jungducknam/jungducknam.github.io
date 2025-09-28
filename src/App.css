@@ -60,6 +60,7 @@ section h1, section h2, section h3 {
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 10px;
   margin-bottom: 20px;
+  transition: border-bottom-color 0.3s;
 }
 
 section h1 {
@@ -93,7 +94,7 @@ section h3 {
   padding: 20px;
   border-radius: 8px;
   border: 1px solid var(--card-border-color);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .skill-category h3 {
@@ -114,6 +115,7 @@ section h3 {
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid var(--card-border-color);
+  transition: border-bottom-color 0.3s;
 }
 
 .skill-category li:last-child {
