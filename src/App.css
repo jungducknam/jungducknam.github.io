@@ -93,6 +93,7 @@ section h3 {
   padding: 20px;
   border-radius: 8px;
   border: 1px solid var(--card-border-color);
+  transition: background-color 0.3s;
 }
 
 .skill-category h3 {
@@ -152,6 +153,7 @@ section h3 {
   padding: 15px;
   border-radius: 5px;
   background-color: var(--legend-bg-color);
+  transition: background-color 0.3s;
 }
 
 .skill-legend-section .legend-item h4 {
