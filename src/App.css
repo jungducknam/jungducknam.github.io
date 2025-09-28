@@ -1,42 +1,195 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* 기본 폰트 및 배경 설정 */
+body {
+  margin: 0; /* 브라우저 기본 마진 제거 */
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  min-height: 100vh; /* body 높이를 화면 전체 높이로 설정 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f4f7f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 전체 포트폴리오 컨테이너 */
+.portfolio-container {
+  width: 100%;
+  /* 가독성을 위해 최대 너비를 1400px로 설정합니다. */
+  max-width: 1400px; 
+  margin: auto; /* flex 컨테이너 안에서 수직/수평 중앙 정렬을 담당합니다. */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box; /* padding을 너비에 포함시킵니다. */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* 공통 섹션 스타일 */
+section {
+  margin-bottom: 40px;
+}
+
+section h1, section h2, section h3 {
+  color: #2c3e50;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+section h1 {
+  font-size: 2.5em;
+}
+
+section h2 {
+  font-size: 2em;
+}
+
+section h3 {
+  font-size: 1.5em;
+  border-bottom: none;
+}
+
+/* 1. 소개 섹션 */
+.intro-section p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* 2. 기술 스택 섹션 */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.skill-category {
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.skill-category h3 {
+  margin-top: 0;
+  color: #34495e;
+  font-size: 1.3em;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-category li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.skill-category li:last-child {
+  border-bottom: none;
+}
+
+/* 스킬 레벨을 나타내는 색상 점 */
+.skill-level-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.skill-level-dot.proficient {
+  background-color: #27ae60; /* Green */
+}
+
+.skill-level-dot.experienced {
+  background-color: #2980b9; /* Blue */
+}
+
+.skill-level-dot.familiar {
+  background-color: #f39c12; /* Orange */
+}
+
+
+/* 3. 스킬 수준 설명 섹션 */
+.skill-legend-section .legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skill-legend-section .legend-item {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+
+.skill-legend-section .legend-item h4 {
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.skill-legend-section .legend-item h4 .skill-level-dot {
+  margin-right: 10px;
+}
+
+.skill-legend-section .legend-item p {
+  font-size: 0.95em;
+  color: #666;
+  margin: 0;
+}
+
+/* --- 반응형 웹 디자인을 위한 미디어 쿼리 --- */
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  section h1 {
+    font-size: 2em;
+  }
+
+  section h2 {
+    font-size: 1.7em;
+  }
+
+  .skills-grid,
+  .legend-grid {
+    /* 화면이 작아지면 1열로 변경 */
+    grid-template-columns: 1fr;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .portfolio-container {
+    border-radius: 0;
+    padding: 15px;
+    box-shadow: none;
+  }
+
+  body {
+    background-color: #ffffff;
+  }
+
+  section h1 {
+    font-size: 1.8em;
+  }
+
+  section h2 {
+    font-size: 1.5em;
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* 2K 이상 해상도를 위한 미디어 쿼리 */
+@media (min-width: 2000px) {
+  .portfolio-container {
+    max-width: 80%;
+  }
 }
