@@ -10,22 +10,30 @@ const skillsData = {
     { name: 'Kotlin', level: 'familiar' },
     { name: 'Spring Boot', level: 'proficient' },
     { name: 'Node.js', level: 'familiar' },
+    { name: 'Kafka', level: 'familiar' },
   ],
   frontend: [
     { name: 'React', level: 'experienced' },
     { name: 'TypeScript', level: 'experienced' },
     { name: 'JavaScript', level: 'proficient' },
+    { name: 'JQuery', level: 'proficient' },
+    { name: 'JSP', level: 'proficient' },
     { name: 'HTML/CSS', level: 'proficient' },
   ],
   database: [
     { name: 'PostgreSQL', level: 'proficient' },
+    { name: 'SQL server', level: 'proficient' },
     { name: 'MySQL', level: 'experienced' },
-    { name: 'Redis', level: 'familiar' },
+    { name: 'ORACLE', level: 'experienced' },
+    { name: 'Redis', level: 'experienced' },
   ],
   devops: [
     { name: 'Cloud (NAVER, OCI, AWS, etc.)', level: 'experienced' },
-    { name: 'Docker', level: 'experienced' },
+    { name: 'Docker', level: 'proficient' },
+    { name: 'Kubernetes', level: 'experienced' },
     { name: 'Git', level: 'proficient' },
+    { name: 'GitHub Actions', level: 'experienced' },
+    { name: 'JUnit', level: 'experienced' },
   ],
 };
 
@@ -95,10 +103,10 @@ function App() {
     <div className="portfolio-container">
       {/* 소개 섹션 */}
       <section className="intro-section">
-        <h1>다양한 상황에 맞는 시스템을 제공하는 개발자. 남정덕입니다.</h1>
+        <h1>상황에 따라 최선의 시스템을 제공하는 개발자. 남정덕입니다.</h1>
         <p>
           복잡한 문제를 해결하고 효율적인 시스템을 만드는 것을 즐기는 백엔드 개발자입니다. 
-          견고한 서버 아키텍처 설계와 데이터 처리에 강점을 가지고 있습니다. 
+          주어진 상황에서 최선의 아키텍쳐와 서비스를 제공하기 위해 노력하고 있습니다.
           사용자에게 더 나은 경험을 제공하기 위해 프론트엔드 기술에도 꾸준히 관심을 가지고 학습하며, 풀스택 개발 역량을 키워나가고 있습니다.
         </p>
       </section>
