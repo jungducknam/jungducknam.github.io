@@ -49,9 +49,6 @@ type Skill = {
   level: keyof typeof skillLevels;
 };
 
-type SkillsByCategory = {
-  [category: string]: Skill[];
-};
 
 function App() {
   return (
