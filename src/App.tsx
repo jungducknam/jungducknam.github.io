@@ -44,10 +44,6 @@ const skillLevels = {
   },
 };
 
-type Skill = {
-  name: string;
-  level: keyof typeof skillLevels;
-};
 
 
 function App() {
