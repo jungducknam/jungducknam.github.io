@@ -34,3 +34,6 @@ dist/
 
 .gemini/
 gha-creds-*.json
+AGENTS.md
+README.md
+sample_portfolio.png
