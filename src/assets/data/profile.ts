@@ -171,7 +171,7 @@ export const profile: ProfileData = {
     },
     {
       category: 'Frontend',
-      items: ['JavaScript', 'React', 'Next.js', 'JSP', 'JQuery'],
+      items: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'JSP', 'JQuery'],
     },
     { category: 'DB/Cache', items: ['PostgreSQL', 'SQL Server', 'Oracle', 'Redis', 'Spring Batch'] },
     { category: 'DevOps', items: ['Docker', 'Github Actions', 'Gradle', 'SonarQube', 'k8s'] },
