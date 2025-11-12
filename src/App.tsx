@@ -84,7 +84,7 @@ function App() {
         </Section>
 
         {profile.contact && (
-          <Section id="contact" title="Contact" subtitle="함께 문제를 풀어보고 싶다면">
+          <Section id="contact" title="Contact" subtitle="함께 문제를 풀어보고 싶다면 ">
             <ul className="contact-list">
               {profile.contact.email && (
                 <li>
