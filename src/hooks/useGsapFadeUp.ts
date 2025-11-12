@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react'
+import { type RefObject, useEffect } from 'react'
 import gsap from 'gsap'
 
 interface FadeOptions {
@@ -6,7 +6,7 @@ interface FadeOptions {
   stagger?: number
 }
 
-const useGsapFadeUp = (ref: RefObject<HTMLElement>, options?: FadeOptions) => {
+const useGsapFadeUp = (ref: RefObject<HTMLElement | null>, options?: FadeOptions) => {
   const delay = options?.delay ?? 0
   const stagger = options?.stagger ?? 0.08
 

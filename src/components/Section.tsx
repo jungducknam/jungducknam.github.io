@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react'
+import { type ReactNode, useRef } from 'react'
 import useGsapFadeUp from '../hooks/useGsapFadeUp'
 
 interface SectionProps {
@@ -10,7 +10,7 @@ interface SectionProps {
 }
 
 const Section = ({ id, title, subtitle, intro, children }: SectionProps) => {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement | null>(null)
   useGsapFadeUp(sectionRef)
 
   return (
