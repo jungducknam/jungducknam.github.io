@@ -25,6 +25,15 @@ function App() {
   const heroLead = heroSummaryLines[0] || heroIntro
   const heroBulletLines = heroSummaryLines.length > 1 ? heroSummaryLines.slice(1) : []
 
+  const navItems = [
+    { id: 'profile', label: 'Profile' },
+    { id: 'education', label: 'Education' },
+    { id: 'career', label: 'Career' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    ...(profile.contact ? [{ id: 'contact', label: 'Contact' }] : []),
+  ]
+
   const educationItems = profile.education.map((edu) => ({
     period: edu.period,
     title: edu.school,
@@ -41,7 +50,7 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Nav />
+      <Nav items={navItems} />
       <main className="portfolio-container" role="main">
         <Section
           id="profile"
@@ -72,7 +81,7 @@ function App() {
           </div>
         </Section>
 
-        <Section id="education" title="Education" subtitle="구조화 사고의 기반" intro="정보 구조화 이론을 서비스 설계에 접목하고 있습니다.">
+        <Section id="education" title="Education" subtitle="구조화 사고의 기반">
           <Timeline items={educationItems} variant="education" />
         </Section>
         

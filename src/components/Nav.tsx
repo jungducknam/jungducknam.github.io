@@ -1,35 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useMemo } from 'react'
 
-const navItems = [
-  { id: 'profile', label: 'Profile' },
-  { id: 'education', label: 'Education' },
-  { id: 'career', label: 'Career' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-]
+interface NavItem {
+  id: string
+  label: string
+}
 
-const Nav = () => {
-  const [activeId, setActiveId] = useState(navItems[0].id)
+interface NavProps {
+  items: NavItem[]
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        })
-      },
-      { rootMargin: '-40% 0px -40% 0px', threshold: 0.1 },
-    )
-
-    navItems.forEach((item) => {
-      const section = document.getElementById(item.id)
-      if (section) observer.observe(section)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+const Nav = ({ items }: NavProps) => {
+  const safeItems = useMemo(() => (items.length > 0 ? items : [{ id: 'profile', label: 'Profile' }]), [items])
 
   const handleClick = (id: string) => {
     const target = document.getElementById(id)
@@ -42,13 +23,9 @@ const Nav = () => {
     <nav className="anchor-nav" aria-label="주요 섹션 이동">
       <div className="anchor-nav__brand">jungducknam.dev</div>
       <ul className="anchor-nav__list">
-        {navItems.map((item) => (
+        {safeItems.map((item) => (
           <li key={item.id}>
-            <button
-              type="button"
-              onClick={() => handleClick(item.id)}
-              className={`anchor-nav__link ${activeId === item.id ? 'is-active' : ''}`}
-            >
+            <button type="button" onClick={() => handleClick(item.id)} className="anchor-nav__link">
               {item.label}
             </button>
           </li>
