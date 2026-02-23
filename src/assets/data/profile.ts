@@ -48,7 +48,7 @@ export const profile: ProfileData = {
     title: 'Backend Engineer (Java/Spring)',
     summary: [
       '',
-      'EduTech 3년+ 백엔드 경험. 안정적인 서비스 설계와 기능 우선 개발 후 리팩토링의 반복 지향.',
+      'EduTech 4년+ 백엔드 경험. 안정적인 서비스 설계와 기능 우선 개발 후 리팩토링의 반복 지향.',
       '문헌정보학과를 전공하며 데이터를 저장 및 가공하는 것에 흥미를 느꼈으며, 이는 백엔드 개발자가 되는 계기가 되었습니다.',
       '항상 최고의 코드를 만들기 보다, 주어진 환경 내에서 최선의 방법으로 목표한 기능을 개발하는것이 중요하다고 생각합니다.',
       '18개 기관의 유지보수를 담당하며, 고객의 요구사항을 정확히 이해하고 설명할 수 있는 능력을 배웠습니다.',
@@ -64,6 +64,17 @@ export const profile: ProfileData = {
   ],
   career: [
     {
+      company: '한국교육과정평가원 AI 기반 학력진단 구축 사업 · 프리랜서',
+      teamRole: 'Backend Engineer(계약)',
+      period: '2025.07~현재',
+      stacks: ['Java', 'Spring', 'PostgreSQL', 'Kafka', 'Docker'],
+      highlights: [
+        '서비스 간 결합도 완화 위해 MQ 도입(Kafka vs RabbitMQ 비교·적용)',
+        '모듈화된 DB와 코드 설계로 다양한 요구에 대응',
+        '이벤트 기반 처리로 확장성·자원 효율 개선',
+      ],
+    },
+    {
       company: '㈜ 퓨쳐누리 · 개발9팀 · 대리',
       teamRole: 'Backend Engineer(정규)',
       period: '2021.10~2024.09',
@@ -73,17 +84,6 @@ export const profile: ProfileData = {
         'PK 생성 로직 MAX+1 → Sequence 전환으로 동시성 병목·충돌 제거',
         '문항은행 도메인 모델 수립(지문-문항-시험지, 일괄 이동/난이도 변경 등)',
         '18개 기관의 문제은행 솔루션 유지보수 및 운영지원',
-      ],
-    },
-    {
-      company: '한국교육과정평가원 AI 기반 학력진단 구축 사업 · 프리랜서',
-      teamRole: 'Backend Engineer(계약)',
-      period: '2025.07~현재',
-      stacks: ['Java', 'Spring', 'PostgreSQL', 'Kafka', 'Docker'],
-      highlights: [
-        '서비스 간 결합도 완화 위해 MQ 도입(Kafka vs RabbitMQ 비교·적용)',
-        '모듈화된 DB와 코드 설계로 다양한 요구에 대응',
-        '이벤트 기반 처리로 확장성·자원 효율 개선',
       ],
     },
   ],
@@ -105,7 +105,7 @@ export const profile: ProfileData = {
         'Docker',
       ],
       summary:
-        '문항(선택형/단답/서술 등 14개 유형) 생성 및 관리, 일괄등록/이동, 시험지 패키징, 채점 등 학력진단 시스템의 핵심 API와 DDL 설계/구축',
+        '문항(선택형/단답/서술 등 14개 유형) 생성 및 관리, 일괄등록/이동, 시험지 패키징, 채점, 통계 등 학력진단 시스템의 핵심 API와 DDL 설계/구축',
       contributions: [
         '문항 마이크로서비스 설계 구축, 사용자 답안 저장 및 채점, 검증 기능 구축',
         'JWT 기반 인증/인가 및 공통 필터 도입, Swagger 문서화 작업',
@@ -113,11 +113,14 @@ export const profile: ProfileData = {
         'Kafka를 통한 메시징 큐 도입으로 비동기적 작업 처리와 장애 전파 최소화',
         'Spring Batch를 통한 Bulk Insert 및 스케줄 작업, 오류 건 별도 처리 기능 구축',
         '공공 데이터베이스 표준화 관리 지침에 맞춰 기존 솔루션 DDL 재설계 참여',
+        '문항 서비스의 AI Agent 전용 가이드라인 작성 및 사내 공유',
+        '교육과정 평가의 중요지표인 이원분류표 로직 구현 및 쿼리 최적화',
       ],
       outcomes: [
         '유연한 구조 설계로 인한 새로운 기획 요구에 빠르게 대응하여 진척률 타인 대비 10% 향상',
         '패키징 처리 안정성 향상(재시도/트랜잭션 경계 정리)으로 오류 재현율 감소',
-        '비동기 작업 & 스케줄링 도입으로 과부하 작업 분산 효과'
+        '비동기 작업 & 스케줄링 도입으로 과부하 작업 분산 효과 (기준치 1000 TPS 달성)',
+        'AI 전용 가이드 작성 후 약 2주간 PR 127개 승인',
       ],
     },
     {
@@ -167,7 +170,7 @@ export const profile: ProfileData = {
   skills: [
     {
       category: 'Backend',
-      items: ['Java', 'Kotlin', 'Python', 'Spring Boot', 'MyBatis', 'JPA', 'Kafka', ],
+      items: ['Java', 'Kotlin', 'Python', 'Spring Boot', 'MyBatis', 'JPA', 'Kafka',],
     },
     {
       category: 'Frontend',
