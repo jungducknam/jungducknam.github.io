@@ -1,15 +1,13 @@
+import type { Project } from '../assets/data/profile'
+
 interface ProjectCardProps {
-  name: string
-  role: string
-  period: string
-  tech: string[]
-  summary: string
-  contributions: string[]
-  outcomes: string[]
-  links?: { title: string; url: string }[]
+  project: Project
 }
 
-const ProjectCard = ({ name, role, period, tech, summary, contributions, outcomes, links }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
+  const { slug, name, role, period, tech, summary, contributions, outcomes, links, detail } = project
+  const hasOutcome = outcomes.some((item) => item.trim().length > 0)
+
   return (
     <article className="project-card">
       <div className="project-card__meta">
@@ -45,15 +43,24 @@ const ProjectCard = ({ name, role, period, tech, summary, contributions, outcome
               ))}
             </ul>
           </section>
-          <section className="project-card__section">
-            <h4>성과</h4>
-            <ul>
-              {outcomes.map((item) => (
-                <li key={`${name}-outcome-${item}`}>{item}</li>
-              ))}
-            </ul>
-          </section>
+          {hasOutcome && (
+            <section className="project-card__section">
+              <h4>성과</h4>
+              <ul>
+                {outcomes
+                  .filter((item) => item.trim().length > 0)
+                  .map((item) => (
+                    <li key={`${name}-outcome-${item}`}>{item}</li>
+                  ))}
+              </ul>
+            </section>
+          )}
         </div>
+        {detail && (
+          <a className="project-card__detail-cta" href={`#/project/${slug}`}>
+            상세 보기 · 고민과 해결 →
+          </a>
+        )}
       </div>
     </article>
   )

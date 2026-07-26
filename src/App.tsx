@@ -3,12 +3,16 @@ import Nav from './components/Nav'
 import Section from './components/Section'
 import Timeline from './components/Timeline'
 import ProjectCard from './components/ProjectCard'
+import ProjectDetail from './components/ProjectDetail'
 import SkillsGrid from './components/SkillsGrid'
 import { profile } from './assets/data/profile'
 import './App.css'
 
+const PROJECT_HASH_PREFIX = '#/project/'
+
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+  const [hash, setHash] = useState(() => window.location.hash)
 
   useEffect(() => {
     document.body.classList.remove('light', 'dark')
@@ -16,8 +20,42 @@ function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+  }
+
+  const activeSlug = hash.startsWith(PROJECT_HASH_PREFIX)
+    ? hash.slice(PROJECT_HASH_PREFIX.length)
+    : null
+  const activeProject = activeSlug
+    ? profile.projects.find((project) => project.slug === activeSlug) ?? null
+    : null
+
+  const goBack = () => {
+    window.location.hash = ''
+  }
+
+  const themeButton = (
+    <button type="button" onClick={toggleTheme} className="theme-toggle-button" aria-label="테마 전환">
+      {theme === 'light' ? '🌙' : '☀️'}
+    </button>
+  )
+
+  if (activeProject) {
+    return (
+      <div className="app-shell">
+        <main className="portfolio-container portfolio-container--detail" role="main">
+          <ProjectDetail project={activeProject} onBack={goBack} />
+        </main>
+        {themeButton}
+      </div>
+    )
   }
 
   const [heroIntro, ...heroDetails] = profile.hero.summary
@@ -92,7 +130,7 @@ function App() {
         <Section id="projects" title="Projects" subtitle="도메인 임팩트를 만든 핵심 작업" intro="운영 중인 평가/문항 시스템과 실험적 사이드 프로젝트를 함께 정리했습니다.">
           <div className="projects-grid">
             {profile.projects.map((project) => (
-              <ProjectCard key={project.name} {...project} />
+              <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
         </Section>
@@ -131,9 +169,7 @@ function App() {
         )}
       </main>
 
-      <button type="button" onClick={toggleTheme} className="theme-toggle-button" aria-label="테마 전환">
-        {theme === 'light' ? '🌙' : '☀️'}
-      </button>
+      {themeButton}
     </div>
   )
 }
