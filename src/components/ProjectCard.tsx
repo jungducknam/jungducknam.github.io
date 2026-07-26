@@ -58,7 +58,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         {detail && (
           <a className="project-card__detail-cta" href={`#/project/${slug}`}>
-            상세 보기 · 고민과 해결 →
+            자세히 보기 →
           </a>
         )}
       </div>

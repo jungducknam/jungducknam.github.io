@@ -1,10 +1,13 @@
 import { useEffect, useRef } from 'react'
 import type { Project } from '../assets/data/profile'
+import ProjectDiagram from './ProjectDiagram'
 
 interface ProjectDetailProps {
   project: Project
   onBack: () => void
 }
+
+const DIAGRAM_SLUGS = ['kice', 'ntcn', 'neotest-maintenance']
 
 const ProjectDetail = ({ project, onBack }: ProjectDetailProps) => {
   const topRef = useRef<HTMLDivElement | null>(null)
@@ -14,6 +17,7 @@ const ProjectDetail = ({ project, onBack }: ProjectDetailProps) => {
   }, [project.slug])
 
   const detail = project.detail
+  const hasDiagram = DIAGRAM_SLUGS.includes(project.slug)
 
   return (
     <div className="detail" ref={topRef}>
@@ -64,6 +68,13 @@ const ProjectDetail = ({ project, onBack }: ProjectDetailProps) => {
               {paragraph}
             </p>
           ))}
+        </section>
+      )}
+
+      {hasDiagram && (
+        <section className="detail__block">
+          <h2 className="detail__block-title">구조 한눈에</h2>
+          <ProjectDiagram slug={project.slug} />
         </section>
       )}
 

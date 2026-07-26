@@ -810,6 +810,22 @@ body.dark .theme-toggle-button::before {
   color: #10b981;
 }
 
+.diagram {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.diagram__svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  font-family: inherit;
+}
+
 .detail__evidence {
   margin-top: 32px;
   padding: 14px 16px;
