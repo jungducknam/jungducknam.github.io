@@ -1,69 +1,23 @@
 import type { Project } from '../assets/data/profile'
 
-interface ProjectCardProps {
-  project: Project
-}
-
-const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { slug, name, role, period, tech, summary, contributions, outcomes, links, detail } = project
-  const hasOutcome = outcomes.some((item) => item.trim().length > 0)
-
+export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="project-card">
+    <article id={`project-${project.slug}`} tabIndex={-1} className="project-card">
       <div className="project-card__meta">
-        <p className="project-card__period">{period}</p>
-        <h3 className="project-card__name">{name}</h3>
-        <p className="project-card__role">{role}</p>
-        <div className="project-card__tech" aria-label="사용 기술">
-          {tech.map((stack) => (
-            <span key={stack} className="chip">
-              {stack}
-            </span>
-          ))}
+        <p className="project-card__period">{project.period}</p>
+        <h3 className="project-card__name">{project.name}</h3>
+        <p className="project-card__role">{project.role}</p>
+        <div className="project-card__tech" aria-label="주요 사용 기술">
+          {project.tech.slice(0, 4).map((stack) => <span key={stack} className="chip">{stack}</span>)}
         </div>
-        {links && links.length > 0 && (
-          <div className="project-card__links">
-            {links.map((link) => (
-              <a key={link.title} href={link.url} target="_blank" rel="noreferrer noopener">
-                {link.title}
-              </a>
-            ))}
-          </div>
-        )}
       </div>
-
       <div className="project-card__content">
-        <p className="project-card__summary">{summary}</p>
-        <div className="project-card__details">
-          <section className="project-card__section project-card__section--primary">
-            <h4>기여</h4>
-            <ul>
-              {contributions.map((item) => (
-                <li key={`${name}-contrib-${item}`}>{item}</li>
-              ))}
-            </ul>
-          </section>
-          {hasOutcome && (
-            <section className="project-card__section">
-              <h4>성과</h4>
-              <ul>
-                {outcomes
-                  .filter((item) => item.trim().length > 0)
-                  .map((item) => (
-                    <li key={`${name}-outcome-${item}`}>{item}</li>
-                  ))}
-              </ul>
-            </section>
-          )}
-        </div>
-        {detail && (
-          <a className="project-card__detail-cta" href={`#/project/${slug}`}>
-            자세히 보기 →
-          </a>
-        )}
+        <p className="project-card__summary">{project.summary}</p>
+        <p className="project-card__scope"><span>담당 영역</span>{project.focus}</p>
+        <a id={`open-${project.slug}`} className="project-card__detail-cta" href={`#/project/${project.slug}`}>
+          {project.cases.length}개의 기술 사례 읽기 <span className="sr-only">: {project.shortName}</span><span aria-hidden="true">→</span>
+        </a>
       </div>
     </article>
   )
 }
-
-export default ProjectCard
