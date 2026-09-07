@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Project } from '../assets/data/profile'
 import ProjectDiagram from './ProjectDiagram'
+import CaseStudy from './CaseStudy'
 
 interface ProjectDetailProps {
   project: Project
@@ -12,15 +13,15 @@ export default function ProjectDetail({ project, section, backHref }: ProjectDet
   const [mobileTocOpen, setMobileTocOpen] = useState(false)
   const href = (id: string) => `#/project/${project.slug}/${id}`
   const sections = [
-    { id: 'project-overview', label: 'Overview' },
-    ...(project.flow ? [{ id: 'architecture', label: 'Architecture' }] : []),
-    { id: 'contributions', label: 'Contribution' },
+    { id: 'project-overview', label: '프로젝트 개요' },
+    ...(project.flow ? [{ id: 'architecture', label: '업무 흐름' }] : []),
+    { id: 'contributions', label: '담당한 개발' },
     ...project.cases.map((item, index) => ({
       id: item.id,
-      label: `0${index + 1}. ${item.navTitle || item.id.split('-').map((word) => word === 'api' ? 'API' : word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`,
+      label: `${String(index + 1).padStart(2, '0')}. ${item.navTitle || item.title}`,
     })),
-    ...(project.notes?.length ? [{ id: 'more-cases', label: 'More Cases' }] : []),
-    ...(project.writings?.length ? [{ id: 'dev-notes', label: 'Dev Notes' }] : []),
+    ...(project.notes?.length ? [{ id: 'more-cases', label: '추가 개발 기록' }] : []),
+    ...(project.writings?.length ? [{ id: 'dev-notes', label: '개발 회고' }] : []),
   ]
   const tocLinks = (
     <ol className="detail-toc__list">
@@ -38,7 +39,7 @@ export default function ProjectDetail({ project, section, backHref }: ProjectDet
       <div className="detail-mobile-toc">
         <button type="button" aria-expanded={mobileTocOpen} aria-controls="mobile-toc-content"
           onClick={() => setMobileTocOpen((value) => !value)}>
-          Contents · {project.cases.length ? `${project.cases.length} cases` : 'Overview'}
+          목차 · {project.shortName}
           <span aria-hidden="true">{mobileTocOpen ? '−' : '+'}</span>
         </button>
         <nav id="mobile-toc-content" hidden={!mobileTocOpen} aria-label="이 페이지 목차">{tocLinks}</nav>
@@ -48,7 +49,7 @@ export default function ProjectDetail({ project, section, backHref }: ProjectDet
           <nav className="detail-toc" aria-label="이 페이지 목차">
             <p className="eyebrow">{project.shortName}</p>
             {tocLinks}
-            <a className="detail__back" href={backHref}>← Back</a>
+            <a className="detail__back" href={backHref}>← 포트폴리오로</a>
           </nav>
         </aside>
         <div className="detail-content">
@@ -102,36 +103,11 @@ export default function ProjectDetail({ project, section, backHref }: ProjectDet
             <section aria-labelledby="challenges-title">
               <header className="case-section-header">
                 <p className="eyebrow">Engineering challenges</p>
-                <h2 id="challenges-title" className="detail__block-title">관측에서 판단, 검증까지</h2>
-                <p>사례별로 담당 범위와 확인된 결과를 구분했습니다. 현재의 개선안은 당시 구현과 별도로 표기했습니다.</p>
+                <h2 id="challenges-title" className="detail__block-title">구현과 문제 해결</h2>
+                <p>문제를 정의하고, 변경 범위를 정하고, 결과를 확인한 과정입니다.</p>
               </header>
               {project.cases.map((item, index) => (
-                <article id={item.id} tabIndex={-1} className="engineering-case" key={item.id} aria-labelledby={`${item.id}-title`}>
-                  <header className="engineering-case__header">
-                    <div className="engineering-case__meta"><span className="case-number">CASE 0{index + 1}</span><span>{item.axis}</span>{item.status && <span>{item.status}</span>}</div>
-                    <h3 id={`${item.id}-title`}>{item.title}</h3>
-                    <p className="engineering-case__summary">{item.summary}</p>
-                    <p className="engineering-case__role"><strong>내 역할</strong>{item.role}</p>
-                  </header>
-                  <ol className="case-steps">
-                    {item.steps.map((step) => (
-                      <li key={step.label}>
-                        <h4>{step.label}</h4>
-                        <div>{step.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-                      </li>
-                    ))}
-                  </ol>
-                  <div className="case-result"><span>확인된 결과</span><p>{item.outcome}</p></div>
-                  <div className="case-reflection">
-                    <div><h4>이 경험에서 배운 점</h4><p>{item.learning}</p></div>
-                    {item.limits && <div className="case-limit"><h4>기록의 한계 · 추가 확인</h4><p>{item.limits}</p></div>}
-                    {item.future && <div><h4>현재 다시 설계한다면</h4><p>{item.future}</p></div>}
-                  </div>
-                  <a className="case-permalink" href={href(item.id)}>이 사례의 고유 링크 <span className="sr-only">: {item.title}</span><span aria-hidden="true">↗</span></a>
-                  {item.source && (
-                    <div className="case-source"><span>개발 기록에서 확인하기</span><a href={item.source.url} target="_blank" rel="noreferrer noopener">{item.source.title} <span aria-hidden="true">↗</span></a></div>
-                  )}
-                </article>
+                <CaseStudy key={item.id} item={item} index={index} href={href(item.id)} expanded={section === item.id} />
               ))}
             </section>
           )}

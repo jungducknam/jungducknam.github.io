@@ -76,7 +76,7 @@ function App() {
                   <h1 id="profile-title" className="hero__title">{profile.hero.headline}</h1>
                   <p className="hero__lead">{profile.hero.summary}</p>
                   <div className="hero__cta">
-                    <a className="button" href="#cases">대표 문제 해결 사례 <span aria-hidden="true">↓</span></a>
+                    <a className="button" href="#cases">대표 사례 읽기 <span aria-hidden="true">↓</span></a>
                     <a className="button button--ghost" href="#projects">프로젝트 살펴보기</a>
                   </div>
                 </div>
@@ -84,31 +84,31 @@ function App() {
                   <img src={`${import.meta.env.BASE_URL}jdnam4.jpg`} alt="남정덕" className="hero__photo" width="180" height="240" fetchPriority="high" />
                 </div>
               </div>
-              <p className="hero__footnote">문항 저작부터 시험지·응시·채점까지, 데이터가 흐르는 전 과정을 다뤘습니다.</p>
+              <p className="hero__footnote">업무에서는 Java와 Spring, 개인 프로젝트에서는 로컬 AI와 실시간 게임을 다룹니다.</p>
             </section>
 
-            <Section id="cases" title="문제를 해결한 세 가지 방식" subtitle="Selected engineering cases" intro="무엇을 관측했고, 왜 그 방법을 선택했는지 소개합니다.">
+            <Section id="cases" title="변경의 기준이 된 세 가지 판단" subtitle="Selected engineering cases" intro="입력의 범위, 조회의 병목, 보존할 점수를 정하고 검증한 경험입니다.">
               <FeaturedCases />
             </Section>
 
-            <Section id="career" title="운영에서 배운 기준을 개발에 담다" subtitle="Career" intro="데이터 복구로 도메인을 익히고, API 전환을 거쳐 정확성과 운영 안전성을 개발 단계에서 다루고 있습니다.">
+            <Section id="career" title="개발과 운영을 이어온 경력" subtitle="Career">
               <Timeline items={profile.career} variant="career" />
             </Section>
 
-            <Section id="projects" title="프로젝트와 담당 범위" subtitle="Projects" intro="전체 시스템의 맥락과 제가 직접 수행한 일을 나누어 정리했습니다.">
+            <Section id="projects" title="프로젝트와 담당 범위" subtitle="Projects" intro="문항·시험지·채점 개발과 기관별 시스템 운영에서 맡은 일입니다.">
               <div className="projects-grid">
                 {profile.projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
               </div>
             </Section>
 
-            <Section id="lab" title="관심을 실제로 동작하는 제품으로" subtitle="Independent projects · AI & interactive systems" intro="업무 밖에서는 로컬 AI와 실시간 게임을 만듭니다. 낯선 도메인에서도 현상을 관측하고, 계약과 검증 기준을 세우며 구현을 이어갑니다.">
+            <Section id="skills" title="기술을 사용한 맥락" subtitle="Technical skills">
+              <SkillsGrid categories={profile.skills} />
+            </Section>
+
+            <Section id="lab" title="관심을 실제로 동작하는 제품으로" subtitle="Independent projects · AI & interactive systems" intro="로컬 AI의 대화 품질과 실시간 게임의 조작감을 직접 정의하고, 동작하는 제품으로 구현합니다.">
               <div className="explorations-grid">
                 {profile.explorations.map((project) => <ExplorationCard key={project.slug} project={project} />)}
               </div>
-            </Section>
-
-            <Section id="skills" title="기술을 사용한 맥락" subtitle="Technical skills">
-              <SkillsGrid categories={profile.skills} />
             </Section>
 
             <Section id="more" title="그 밖의 경험" subtitle="Beyond backend">

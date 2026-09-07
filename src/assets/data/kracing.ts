@@ -44,8 +44,7 @@ export const kracing: Project = {
   ],
   cases: [
     {
-      id: 'prediction-jitter',
-      navTitle: 'Prediction & Jitter',
+      id: 'prediction-jitter', navTitle: '예측과 화면 떨림',
       title: '네트워크를 의심했지만, 예측에는 충돌이 빠져 있었다',
       axis: 'Reliability',
       status: '초기 서버 권위 방식의 회고',
@@ -64,8 +63,7 @@ export const kracing: Project = {
       source: { title: '웹에서 카트라이더를 만들고 싶었을 뿐', url: retrospectiveUrl },
     },
     {
-      id: 'verified-ranking',
-      navTitle: 'Verified Ranking',
+      id: 'verified-ranking', navTitle: '서버가 검증하는 기록',
       title: '완주 시간을 받는 대신, 같은 입력으로 다시 달렸다',
       axis: 'Correctness',
       summary: '브라우저가 보낸 결과를 검증 가능한 입력으로 바꾸고, 같은 조건의 기록끼리 비교하도록 했습니다.',

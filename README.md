@@ -4,11 +4,11 @@ Java/Spring 기반 문제은행·온라인 시험 경험을 기술 사례로 소
 
 ## 내용과 화면
 
-- 첫 화면 → 대표 사례 3개 → 경력 성장 → 주요 프로젝트 → Lab (CharaNest·K-Racing) → 기술 사용 맥락 → 확장 앱·학력 → 연락처
+- 첫 화면 → 대표 사례 3개 → 경력 → 주요 프로젝트 → 기술 사용 맥락 → Lab (CharaNest·K-Racing) → 확장 앱·학력 → 연락처
 - 주요 프로젝트: KICE, 퓨쳐누리 개발·운영, NTCN
 - 개인 프로젝트: CharaNest (로컬 AI 프로토타입), K-Racing (공개 웹 게임), Keep Your Focus (스토어 배포 확장 앱)
-- 상단 메뉴와 상세 목차는 영문, 테마는 접근 가능한 해·달 아이콘 버튼
-- 상세: 개요 → 구조·기여 구분 → 직접 수행 → 조사·판단·구현·검증 → 결과·한계·현재 개선안
+- 상단 메뉴는 영문, 상세 목차는 사례를 구분할 수 있는 짧은 한글 제목, 테마는 접근 가능한 해·달 아이콘 버튼
+- 상세: 개요 → 업무 흐름 → 담당한 개발 → 사례별 판단·결과·확인 범위 → 구현·검증. 비교표와 선택적인 회고로 세부 내용을 보완
 - 데스크톱 측면 목차, 모바일 접이식 고정 목차, 사례 고유 링크와 목록 위치·포커스 복귀
 - 콘텐츠는 처음부터 표시됩니다. 긴 섹션의 노출 여부를 스크롤 애니메이션에 의존하지 않습니다.
 
@@ -23,6 +23,7 @@ Java/Spring 기반 문제은행·온라인 시험 경험을 기술 사례로 소
 | `src/assets/data/charanest.ts`, `kracing.ts` | 개인 프로젝트·기술 사례·개발 회고와 출처 |
 | `src/assets/data/types.ts` | 프로젝트·기술 사례·흐름 데이터 타입 |
 | `src/hooks/usePortfolioNavigation.ts` | 해시 경로, 사례 이동, 목록 위치·포커스 복귀 |
+| `src/components/CaseStudy.tsx` | 결과·보장 범위·본문·비교표·접이식 보조 사례의 공통 렌더링 |
 | `src/components/` | 기존 공통 UI와 대표 사례·상세·흐름 컴포넌트 |
 | `src/App.css` | 공통 테마, 반응형·인쇄·포커스 스타일 |
 | `docs/` | Vite가 직접 생성하는 GitHub Pages 산출물 |
@@ -74,6 +75,23 @@ npm run preview
 - NTCN tenant schema와 KICE 기관별 DB 분리를 혼용하지 않음
 
 `steps`에는 자료로 확인되는 사고 흐름만 추가합니다. 확인되지 않은 조사·대안·검증을 채우지 말고 `limits`에 추가 확인 사항을 적습니다. 현재 관점의 개선은 `future`에 기록합니다.
+
+## 아티클 구성과 가독성
+
+- 대표 사례는 Excel 저장 계약, DB 조회 개선, 수동점수 보존 재채점입니다. 구체적인 변경 선택을 요약에서 드러냅니다.
+- KICE의 답안 정규화·채점 규칙은 기존 기여 내용을 기능 개발 사례로 재구성했습니다. 새로운 성과 수치나 확인되지 않은 설계를 추가하지 않았습니다.
+- `comparison`은 기존 설명과 측정값을 정리한 표입니다. 원본 증거를 새로 확보한 것으로 표현하지 않습니다.
+- `compact` 사례는 요약·담당·결과·한계를 먼저 보여주고 본문을 접습니다. 해당 사례 주소로 이동하면 본문이 열립니다. 기존 사례 ID를 유지합니다.
+- `limits`는 결과 옆에 항상 표시합니다. `learning`과 `future`는 선택적인 회고로 구분합니다.
+- 본문은 단일 열로 읽히며 데스크톱 17px, 모바일 16px를 기준으로 합니다. 제목·소제목·보조 문구의 크기와 간격을 구분하고 한국어 줄바꿈을 확인합니다.
+
+참고한 디자인 문서:
+
+- [GOV.UK Layout](https://design-system.service.gov.uk/styles/layout/): 읽을 수 있는 본문 폭과 열 구성
+- [Carbon Typography style strategies](https://carbondesignsystem.com/elements/typography/style-strategies/): 긴 글의 읽기와 탐색을 위한 제목·본문 위계
+- [USWDS Typography](https://designsystem.digital.gov/components/typography/): 글줄 길이와 행간의 역할
+
+현재 배경색·강조색·카드·테마는 유지하며 원칙을 적용했습니다. 영문 글자 수 권장치를 한글에 그대로 적용하지 않습니다.
 
 ## 개인 프로젝트 출처
 

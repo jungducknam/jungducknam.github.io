@@ -43,7 +43,7 @@ export const charanest: Project = {
   cases: [
     {
       id: 'conversation-contract',
-      navTitle: 'Conversation Contract',
+      navTitle: '대화 의도와 검색 계약',
       title: '“더 짧게 말해줘”가 검색어가 되고 있었다',
       axis: 'Correctness',
       status: '2026.05~06 실험 기록',
@@ -63,7 +63,7 @@ export const charanest: Project = {
     },
     {
       id: 'runtime-quality',
-      navTitle: 'Runtime & Release',
+      navTitle: '런타임과 출시 기준',
       title: '테스트는 통과했지만, 출시를 보류했다',
       axis: 'Reliability',
       summary: '로컬 모델의 시작·종료와 실행 환경을 관리하고, 기능 통과와 제품 출시의 기준을 분리했습니다.',

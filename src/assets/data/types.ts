@@ -14,10 +14,18 @@ export interface EngineeringCase {
   role: string
   outcome: string
   steps: CaseStep[]
-  learning: string
+  learning?: string
   limits?: string
   future?: string
   status?: string
+  compact?: boolean
+  comparison?: {
+    caption: string
+    beforeLabel: string
+    afterLabel: string
+    rows: { label: string; before: string; after: string }[]
+    note?: string
+  }
   source?: { title: string; url: string }
 }
 

@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <p className="project-card__summary">{project.summary}</p>
         <p className="project-card__scope"><span>담당 영역</span>{project.focus}</p>
         <a id={`open-${project.slug}`} className="project-card__detail-cta" href={`#/project/${project.slug}`}>
-          {project.cases.length}개의 기술 사례 읽기 <span className="sr-only">: {project.shortName}</span><span aria-hidden="true">→</span>
+          담당한 개발과 사례 읽기 <span className="sr-only">: {project.shortName}</span><span aria-hidden="true">→</span>
         </a>
       </div>
     </article>
