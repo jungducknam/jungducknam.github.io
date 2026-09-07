@@ -2,11 +2,13 @@ import type { Project } from './types'
 
 export const futurenuri: Project = {
   slug: 'neotest-maintenance',
-  name: '퓨쳐누리 · 문제은행·온라인 시험 개발과 운영',
-  shortName: '퓨쳐누리',
+  name: '문제은행·온라인 시험 · 개발·운영',
+  shortName: '기관별 개발·운영',
   role: 'Java Backend Engineer',
   period: '2021.10~2024.09',
+  employment: { company: '퓨쳐누리', type: '정규직' },
   tech: ['Java', 'Spring MVC', 'MyBatis', 'MSSQL', 'Oracle', 'Tomcat', 'JSP'],
+  featuredTech: ['Java', 'Spring MVC', 'MyBatis', 'MSSQL', 'Oracle', 'Tomcat'],
   summary: '15개 기관·16개 시스템의 운영 요청을 담당하며 통계·외부 API를 개발했습니다. 기관별 업무 규칙과 서버 환경을 확인해 데이터 불일치와 장애를 해결했습니다.',
   focus: 'DB 병목 분석 · 데이터 복구 · 통계·API 개발 · 다중 서버 장애',
   context: [

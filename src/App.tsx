@@ -87,7 +87,7 @@ function App() {
               <p className="hero__footnote">업무에서는 Java와 Spring, 개인 프로젝트에서는 로컬 AI와 실시간 게임을 다룹니다.</p>
             </section>
 
-            <Section id="cases" title="변경의 기준이 된 세 가지 판단" subtitle="Selected engineering cases" intro="입력의 범위, 조회의 병목, 보존할 점수를 정하고 검증한 경험입니다.">
+            <Section id="cases" title="대표 문제 해결" subtitle="Selected engineering cases" intro="대용량 조회의 병목과 비동기 채점의 순서 문제를 추적하고 개선했습니다.">
               <FeaturedCases />
             </Section>
 
@@ -95,7 +95,7 @@ function App() {
               <Timeline items={profile.career} variant="career" />
             </Section>
 
-            <Section id="projects" title="프로젝트와 담당 범위" subtitle="Projects" intro="문항·시험지·채점 개발과 기관별 시스템 운영에서 맡은 일입니다.">
+            <Section id="projects" title="프로젝트와 담당 범위" subtitle="Projects" intro="퓨쳐누리에서 정규직과 프리랜서로 수행한 프로젝트입니다.">
               <div className="projects-grid">
                 {profile.projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
               </div>

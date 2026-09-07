@@ -37,20 +37,17 @@ export const profile = {
     {
       period: '2021.10~2024.09',
       title: '퓨쳐누리',
-      subtitle: 'Java Backend Engineer · 2년 11개월',
-      points: ['문제은행·온라인 시험·수련관리 운영에서 응시·답안·채점 관계를 추적하고, DB·서버·파일 장애를 분석·복구했습니다.'],
-    },
-    {
-      period: '퓨쳐누리 재직 중 · 2023년 전환·안정화 기록',
-      title: 'NTCN · 퓨쳐누리 사내 프로젝트',
-      subtitle: '사내 최초 MSA 기반 클라우드 SaaS 전환 참여',
-      points: ['QST 문항·시험지·검수 API 전환과 논리삭제·집계 범위·부모-자식 저장 정합성 안정화에 참여했습니다.'],
+      subtitle: '정규직 · Java Backend Engineer · 2년 11개월',
+      points: [
+        '문제은행·온라인 시험·수련관리 시스템을 개발·운영하며 DB·서버·파일 장애를 분석·복구했습니다.',
+        '재직 중 NTCN의 MSA 기반 SaaS 전환에 참여해 QST 문항·시험지·검수 API를 개발하고 데이터 정합성을 보완했습니다.',
+      ],
     },
     {
       period: '2025.07~현재',
-      title: 'KICE · AI 기반 학력진단 시스템',
-      subtitle: 'Backend Engineer · 프리랜서',
-      points: ['문항 저작부터 시험지·응시·채점까지 직접 개발하며 저장 계약, 이벤트 순서와 재채점의 보존 기준을 다룹니다.'],
+      title: '퓨쳐누리',
+      subtitle: '프리랜서 · Java Backend Engineer',
+      points: ['KICE AI 기반 학력진단 시스템에 참여해 문항·시험지·채점을 개발하고, MSA 환경의 서비스 연동과 Kafka 채점 이벤트를 다룹니다.'],
     },
   ],
   education: [
@@ -71,18 +68,13 @@ export const profile = {
 
 export const featuredCases = [
   {
-    project: kice, caseId: 'excel-contract', axis: 'Correctness',
-    label: 'API 저장 계약', headline: '미입력은 보존', title: 'Excel이 바꿀 수 있는 범위를 정하다',
-    description: '양식에 없는 보정자료까지 삭제되던 저장 경로를 추적했습니다. 전체 교체를 식별 Key 기반 갱신으로 바꾸고, 기존 자료의 보존을 확인했습니다.',
-  },
-  {
     project: futurenuri, caseId: 'database-bottleneck', axis: 'Performance',
     label: 'DB 병목 분석', headline: '93,051 → 382ms', title: '응답 지연을 쿼리까지 좁히다',
     description: 'DB CPU와 3,062만 건 테이블의 JOIN 조건을 조사해 복합 인덱스를 추가했습니다. 관련 쿼리를 함께 비교하고, 개선 범위를 핵심 조회로 확인했습니다.',
   },
   {
-    project: kice, caseId: 'safe-regrading', axis: 'Correctness',
-    label: '운영 데이터 변경', headline: '175명 재채점', title: '바꿀 점수와 보존할 점수를 나누다',
-    description: '전체 preview와 대표 2명 실행 후 재채점을 진행했습니다. 수동점수 525건을 보존하고, 예상한 총점 변화와 실제 결과를 대조했습니다.',
+    project: kice, caseId: 'kafka-order', axis: 'Reliability',
+    label: 'Kafka 이벤트 순서', headline: '답안 저장 → 채점', title: '채점이 답안 저장보다 먼저 끝난 이유',
+    description: '서로 다른 Topic을 통과하는 이벤트의 순서 역전을 로그로 추적했습니다. 동일 Topic·Key와 저장 후 발행을 제안하고, 변경의 구현·검증에 참여했습니다.',
   },
 ] as const

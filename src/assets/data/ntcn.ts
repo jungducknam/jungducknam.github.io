@@ -2,12 +2,14 @@ import type { Project } from './types'
 
 export const ntcn: Project = {
   slug: 'ntcn',
-  name: 'NTCN · 문제은행의 클라우드 SaaS 전환',
+  name: 'NTCN · 문제은행 클라우드 SaaS 전환',
   shortName: 'NTCN',
-  role: 'Java Backend Engineer · QST 전환·안정화 참여',
-  period: '퓨쳐누리 재직 중 · 2023년 전환·안정화 기록',
-  tech: ['Java', 'REST API', 'PostgreSQL', 'MSSQL'],
-  summary: '레거시 문제은행을 QST REST API로 옮기는 전환 개발에 참여했습니다. 기존 화면·호출과 신규 계약을 연결하고, DB 전환 과정의 문항 추출·등록 안정화에 참여했습니다.',
+  role: 'Java Backend Engineer',
+  period: '2023년 · 전환·안정화',
+  employment: { company: '퓨쳐누리', type: '정규직' },
+  tech: ['Java', 'REST API', 'MSA', 'PostgreSQL', 'MSSQL'],
+  featuredTech: ['Java', 'REST API', 'MSA', 'PostgreSQL', 'MSSQL'],
+  summary: '사내 문제은행의 MSA 기반 클라우드 SaaS 전환에서 QST 문항·시험지·검수 API 개발에 참여했습니다. 기존 화면·호출과 신규 계약을 연결하고, DB 전환 과정의 문항 추출·등록 안정화에 참여했습니다.',
   focus: '레거시 → QST REST API · 논리삭제 · 집계 기준 · 부모-자식 저장',
   context: [
     '퓨쳐누리 사내 최초 MSA 프로젝트이자 첫 클라우드 성공 전환 사례입니다. 레거시 화면·Controller 중심 기능을 QST·APLY·SYS 경계와 신규 REST API로 옮기는 맥락에서 문제은행 트랙을 담당했습니다.',

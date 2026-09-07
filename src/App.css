@@ -81,7 +81,7 @@ body.dark .button { color: #0f172a; }
 .button--ghost, body.dark .button--ghost { background: transparent; border-color: var(--border-color); color: var(--text-color); }
 .button:hover { text-decoration: none; filter: brightness(.95); }
 .hero__footnote { color: var(--muted-text-color); margin: 30px 0 0; font-size: .8rem; }
-.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.featured-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .featured-card { position: relative; display: flex; flex-direction: column; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; box-shadow: var(--card-shadow); }
 .featured-card__eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .85rem; }
 .featured-card__eyebrow .eyebrow { margin: 0; font-size: .68rem; }
@@ -95,6 +95,7 @@ body.dark .button { color: #0f172a; }
 .project-card { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 40px; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; box-shadow: var(--card-shadow); }
 .project-card__meta { min-width: 0; }
 .project-card__period { font-size: .75rem; color: var(--muted-text-color); margin: 0 0 8px; }
+.project-card__employment, .detail__employment { font-size: .8rem; color: var(--muted-text-color); font-weight: 600; margin: 0 0 10px; }
 .project-card__name { font-size: 1.25rem; margin: 0 0 10px; }
 .project-card__role { font-size: .8rem; color: var(--muted-text-color); margin: 0 0 16px; }
 .project-card__tech, .detail__tech, .skills-grid__items { display: flex; flex-wrap: wrap; gap: 6px; }

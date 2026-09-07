@@ -41,7 +41,9 @@ export interface Project {
   shortName: string
   role: string
   period: string
+  employment?: { company: string; type: '정규직' | '프리랜서' }
   tech: string[]
+  featuredTech?: string[]
   summary: string
   focus: string
   context: string[]

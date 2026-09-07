@@ -5,10 +5,11 @@ export default function ProjectCard({ project }: { project: Project }) {
     <article id={`project-${project.slug}`} tabIndex={-1} className="project-card">
       <div className="project-card__meta">
         <p className="project-card__period">{project.period}</p>
+        {project.employment && <p className="project-card__employment">{project.employment.company} · {project.employment.type}</p>}
         <h3 className="project-card__name">{project.name}</h3>
         <p className="project-card__role">{project.role}</p>
-        <div className="project-card__tech" aria-label="주요 사용 기술">
-          {project.tech.slice(0, 4).map((stack) => <span key={stack} className="chip">{stack}</span>)}
+        <div className="project-card__tech" aria-label="주요 기술과 아키텍처">
+          {(project.featuredTech ?? project.tech.slice(0, 4)).map((stack) => <span key={stack} className="chip">{stack}</span>)}
         </div>
       </div>
       <div className="project-card__content">

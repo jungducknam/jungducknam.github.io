@@ -59,10 +59,11 @@ export default function ProjectDetail({ project, section, backHref }: ProjectDet
           <section id="project-overview" tabIndex={-1} className="detail__block" aria-labelledby="project-title">
             <header className="detail__header">
               <p className="eyebrow">{project.period}</p>
+              {project.employment && <p className="detail__employment">{project.employment.company} · {project.employment.type}</p>}
               <h1 id="project-title" className="detail__title">{project.name}</h1>
               <p className="detail__role">{project.role}</p>
               <p className="detail__tagline">{project.summary}</p>
-              <div className="detail__tech" aria-label="주요 사용 기술">
+              <div className="detail__tech" aria-label="사용 기술과 아키텍처">
                 {project.tech.map((stack) => <span key={stack} className="chip">{stack}</span>)}
               </div>
             </header>
