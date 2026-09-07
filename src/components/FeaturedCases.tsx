@@ -15,7 +15,7 @@ export default function FeaturedCases() {
             <span><span className="featured-card__number">0{index + 1}</span>조사와 판단 읽기<span className="sr-only">: {item.title}</span></span>
             <span aria-hidden="true">↗</span>
           </a>
-          <span className="featured-card__project">{item.project.shortName}</span>
+          <span className="featured-card__project">{item.project.shortName} · {item.context}</span>
         </article>
       ))}
     </div>

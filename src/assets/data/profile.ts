@@ -69,12 +69,20 @@ export const profile = {
 export const featuredCases = [
   {
     project: futurenuri, caseId: 'database-bottleneck', axis: 'Performance',
+    context: '실무',
     label: 'DB 병목 분석', headline: '93,051 → 382ms', title: '응답 지연을 쿼리까지 좁히다',
     description: 'DB CPU와 3,062만 건 테이블의 JOIN 조건을 조사해 복합 인덱스를 추가했습니다. 관련 쿼리를 함께 비교하고, 개선 범위를 핵심 조회로 확인했습니다.',
   },
   {
     project: kice, caseId: 'kafka-order', axis: 'Reliability',
+    context: '실무',
     label: 'Kafka 이벤트 순서', headline: '답안 저장 → 채점', title: '채점이 답안 저장보다 먼저 끝난 이유',
     description: '서로 다른 Topic을 통과하는 이벤트의 순서 역전을 로그로 추적했습니다. 동일 Topic·Key와 저장 후 발행을 제안하고, 변경의 구현·검증에 참여했습니다.',
+  },
+  {
+    project: kracing, caseId: 'verified-ranking', axis: 'Correctness',
+    context: '개인 프로젝트',
+    label: '서버 기록 검증', headline: '입력 재생 → 검증', title: '완주 시간을 서버에서 다시 계산하다',
+    description: '브라우저의 조작 입력을 서버에서 공용 물리로 재생합니다. 2랩 완주와 기록을 검증한 뒤 주간 순위에 반영하고, 트랙 버전·주차를 비교 기준으로 고정했습니다.',
   },
 ] as const

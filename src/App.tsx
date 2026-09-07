@@ -87,7 +87,7 @@ function App() {
               <p className="hero__footnote">업무에서는 Java와 Spring, 개인 프로젝트에서는 로컬 AI와 실시간 게임을 다룹니다.</p>
             </section>
 
-            <Section id="cases" title="대표 문제 해결" subtitle="Selected engineering cases" intro="대용량 조회의 병목과 비동기 채점의 순서 문제를 추적하고 개선했습니다.">
+            <Section id="cases" title="대표 문제 해결" subtitle="Selected engineering cases" intro="실무의 DB 성능·이벤트 순서 개선과 개인 프로젝트의 서버 기록 검증을 소개합니다.">
               <FeaturedCases />
             </Section>
 
